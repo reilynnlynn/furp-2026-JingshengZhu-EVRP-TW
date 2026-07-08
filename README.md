@@ -1,3 +1,10 @@
+# Explanation of Project Progress Delay & Recovery Plan
+Over the past several weeks, personal and family matters have significantly slowed my progress on this research project. Additionally, the original research direction was not aligned with my intended research focus.
+
+Nevertheless, all personal obstacles holding back my research work have now been fully resolved. I am eager to restart this research project with a clear, confirmed research direction. I will need extra time to make up for the unfinished tasks from the past two weeks. My recovery plan is to complete two weeks’ worth of work within one week, which will allow me to fully catch up with the original project schedule by Week 6.
+
+I offer my deepest apologies for falling behind schedule previously and sincerely appreciate your understanding.
+
 # FURP Project Repository
 
 > **Faculty Undergraduate Research Practice (FURP)**  
@@ -39,6 +46,7 @@ The project will start from small synthetic instances and gradually move towards
 ---
 
 ## Current Research Direction
+
 
 The current project direction is:
 
