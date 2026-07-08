@@ -1,109 +1,125 @@
 # FURP Project Repository
 
-> **Faculty Undergraduate Research Practice (FURP)**
+> **Faculty Undergraduate Research Practice (FURP)**  
 > Undergraduate Research Group · Faculty of Science and Engineering · University of Nottingham Ningbo China
 
-This is your project home for the FURP programme. **Fork this template**, rename your repo, fill in the content each week, and share it with us (or make it public) so we can follow your progress and review your weekly work.
+## Project Info
+
+| Field                        | Your entry                                                                                                                                                                                                         |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Student name(s)              | Jingsheng Zhu                                                                                                                                                                                                      |
+| Project title                | Electric Vehicle Routing Problem with Time Windows                                                                                                                                                                 |
+| Project tag                  | EVRP-TW                                                                                                                                                                                                            |
+| Track                        | Research                                                                                                                                                                                                           |
+| Supervising faculty          | Dr Tianxiang Cui                                                                                                                                                                                                   |
+| Project lead                 | Fuhua Jia                                                                                                                                                                                                          |
+| Team or individual           | Individual                                                                                                                                                                                                         |
+| Cited paper being replicated | Keskin, M. and Çatay, B. (2016). *Partial recharge strategies for the electric vehicle routing problem with time windows*. Computers & Operations Research, 65, 111–127. https://doi.org/10.1016/j.cor.2015.07.013 |
+
+**One-line summary:**  
+This project studies the Electric Vehicle Routing Problem with Time Windows, focusing on feasible routing under vehicle capacity, customer time-window, and battery/recharging constraints. The current technical plan is to build a reproducible EVRP-TW implementation pipeline and develop an Adaptive Large Neighbourhood Search algorithm, with a later extension using learning-inspired operator selection.
 
 ---
 
-## Getting started (do this in Week 1)
+## Project Overview
 
-1. **Fork / use this template** to create your own repository.
-2. **Rename your repo** following the naming convention:
-   ```
-   FURP-2025/YourName-ProjectTag
-   # e.g. furp-2025/Jason-ROSBootcamp
-   ```
-3. **Give us access:** either make the repo **public**, or **share it** with the research group accounts (ask your project lead for the usernames to add as collaborators).
-4. **Fill in this README** — replace the placeholders in the *Project Info* section below.
-5. **Start your weekly log** in [`docs/00_weekly.md`](docs/00_weekly.md).
+The Electric Vehicle Routing Problem with Time Windows is an extension of the classical Vehicle Routing Problem. In addition to routing vehicles to serve customers, EVRP-TW considers:
 
----
+- limited vehicle load capacity;
+- customer time windows;
+- limited battery capacity;
+- energy consumption during travel;
+- visits to charging stations;
+- route feasibility under time and battery constraints.
 
-## Project Info — *fill this in*
+The goal of this project is to reproduce and understand core EVRP-TW solution methods, then implement and evaluate an ALNS-based heuristic solver.
 
-| Field                        | Your entry                                         |
-| ---------------------------- | -------------------------------------------------- |
-| Student name(s)              | Jingsheng Zhu                                      |
-| Project title                | Electric Vehicle Routing Problem with Time Windows |
-| Project tag                  | EVRP-TW                                            |
-| Track                        | Research                                           |
-| Supervising faculty          | Dr Tianxiang Cui                                   |
-| Project lead                 | Fuhua Jia                                          |
-| Team or individual           | Individual                                         |
-| Cited paper being replicated | _title + link/DOI_                                 |
-
-**One-line summary:** _What is your project about? (1–2 sentences)_
+The project will start from small synthetic instances and gradually move towards benchmark-style instances and more systematic experiments.
 
 ---
 
-## Repository structure
+## Current Research Direction
 
-This structure is **mandatory** — please keep it intact.
+The current project direction is:
 
-```
-/docs
- ├── 00_weekly.md         ← update EVERY week: progress, challenges, next steps
- └── meeting_notes/       ← key takeaways from all team meetings
-/src                      ← your code / experiments / materials
-FURP_Showcase.pdf         ← your poster / presentation PDF, in the repo root
-```
+1. Understand VRP, EVRP, EVRP-TW, and related constraints.
+2. Build a clean Python codebase for reproducible experiments.
+3. Implement an EVRP-TW instance data model.
+4. Implement basic feasibility checking for:
+   - vehicle capacity;
+   - customer service time windows;
+   - battery consumption;
+   - charging-station visits.
+5. Implement simple constructive baseline methods.
+6. Develop an Adaptive Large Neighbourhood Search solver.
+7. Add a learning-inspired operator selection component as the innovation part.
 
-- **`docs/00_weekly.md`** — your weekly progress log. This is the first thing we check.
-- **`docs/meeting_notes/`** — one file per meeting with key takeaways and action items.
-- **`src/`** — all your code, scripts, notebooks, and experiment materials.
-- **`FURP_Showcase.pdf`** — your final poster, placed in the **repo root** with this exact filename.
-
----
-
-## The three rules for your certificate
-
-To earn your FURP certificate, **all three** must be satisfied:
-
-1. **Attend > 50%** of programme activities (weekly meetings, workshops, scheduled sessions — online or in person).
-2. **Submit a poster** — place it as `FURP_Showcase.pdf` in this repo root.
-3. **Present at the Poster Showcase** — in person (strongly preferred), or send a stand-in if you truly cannot attend.
-
-> Miss any one of the three, and the certificate is not awarded this round.
-
-**Research Track — minimum for certification:** successful replication of a cited paper with at least **10% innovation** (reproduce the work *and* add something new).
+The planned innovation is to compare standard adaptive operator selection in ALNS with a simple learning-inspired or bandit-style operator selection mechanism.
 
 ---
 
-## Weekly cadence
+## Current Progress
 
-Every week, you should:
+### Week 1 Foundation
 
-- ✅ Update [`docs/00_weekly.md`](docs/00_weekly.md)
-- ✅ Log meeting notes in [`docs/meeting_notes/`](docs/meeting_notes/)
-- ✅ Attend the weekly meeting (online or in person)
+Current work is focused on project foundation and reproducibility.
 
-Consistent weekly engagement is the backbone of a successful FURP project — and it feeds directly into your attendance (Rule 1).
-
----
-
-## Leave & withdrawal
-
-Any **leave of absence** or **withdrawal** must be notified to us **by email** — a verbal or chat message is not sufficient.
-
-- **Leave:** email *before* the session where possible, state the date(s) and reason. Note that leave still counts against the >50% attendance rule.
-- **Withdrawal:** email us to formally withdraw so we can free your project slot and update records.
-- **Switching tracks:** email the project lead with the subject *"Project Transfer Request"* and CC your supervising faculty member.
-
-> No email = no record. Always put leave and withdrawal in writing.
+- [x] Set up Python virtual environment.
+- [x] Prepare dependency file `requirements.txt`.
+- [x] Update `.gitignore` for Python, data files, and experiment outputs.
+- [ ] Define EVRP-TW instance data model.
+- [ ] Implement small synthetic EVRP-TW instance generator.
+- [ ] Implement JSON input/output format for instances.
+- [ ] Add feasibility checker for route constraints.
+- [ ] Add initial smoke tests for instance generation and validation.
+- [ ] Start weekly research log in `docs/00_weekly.md`.
 
 ---
 
-## Quick checklist
+## Technical Roadmap
 
-- [ ] Forked the template and renamed the repo (`FURP-2025/YourName-ProjectTag`)
-- [ ] Made the repo public **or** shared it with the research group
-- [ ] Filled in the *Project Info* table above
-- [ ] Started `docs/00_weekly.md`
-- [ ] Created my first file in `docs/meeting_notes/`
-- [ ] (By Showcase) Added `FURP_Showcase.pdf` to the repo root
+### Stage 1: Problem Foundation
+
+- Read introductory materials on VRP, EVRP, and EVRP-TW.
+- Review the cited EVRP-TW paper and identify the main model assumptions.
+- Define the project instance format.
+- Implement a small instance generator.
+- Implement distance, time, demand, and battery-related utilities.
+- Build a feasibility checker.
+
+### Stage 2: Baseline Methods
+
+- Implement simple constructive heuristics.
+- Generate feasible initial solutions.
+- Establish evaluation metrics:
+  - total travel distance;
+  - number of vehicles used;
+  - feasibility rate;
+  - runtime;
+  - battery violation and time-window violation checks.
+
+### Stage 3: ALNS Solver
+
+- Implement destroy operators, such as:
+  - random customer removal;
+  - worst customer removal;
+  - related customer removal.
+- Implement repair operators, such as:
+  - greedy insertion;
+  - regret insertion.
+- Add an acceptance criterion such as simulated annealing.
+- Add adaptive operator weights.
+- Compare ALNS performance against simple baselines.
+
+### Stage 4: Learning-Inspired Extension
+
+- Implement a simple learning-inspired operator selection strategy.
+- Compare it with random and standard adaptive operator selection.
+- Analyze solution quality, convergence behaviour, and runtime.
+- Summarize the contribution as the project innovation component.
 
 ---
 
-*Bridging the gap between classroom knowledge and cutting-edge research.*
+## Repository Structure
+
+This structure follows the FURP project requirement and will be maintained throughout the project.
