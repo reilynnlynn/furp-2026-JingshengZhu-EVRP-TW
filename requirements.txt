@@ -1,0 +1,8 @@
+numpy
+pandas
+matplotlib
+networkx
+pytest
+tqdm
+black
+ruff

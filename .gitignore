@@ -1,10 +1,19 @@
 # Python
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
 .venv/
 venv/
 env/
-*.egg-info/
+
+# Jupyter
 .ipynb_checkpoints/
 
 # Node
@@ -19,7 +28,7 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Data & large files (link to sources instead of committing)
+# Data & large files
 *.csv
 *.tsv
 *.zip
@@ -27,8 +36,24 @@ Thumbs.db
 *.h5
 *.ckpt
 *.pth
-data/
-!**/data/.gitkeep
+
+# Keep small reproducible instance files, but ignore raw/large datasets
+data/raw/
+data/external/
+data/large/
+
+# Experiment outputs
+results/*
+!results/.gitkeep
+!results/logs/
+!results/logs/.gitkeep
+!results/figures/
+!results/figures/.gitkeep
+!results/tables/
+!results/tables/.gitkeep
+
+# Logs
+*.log
 
 # Secrets — NEVER commit credentials
 .env
