@@ -1,35 +1,32 @@
-### Week 2 — 2026-06-15
+### Week 1 — 2026-06-08
 
 **Attended this week's meeting:** Yes
 
 **Progress this week**
-- Built the first OR-Tools VRPTW baseline and ran a feasible routing example successfully.
-- Learned the basic structure of OR-Tools, including the roles of data model, RoutingIndexManager, RoutingModel, callback, dimension, and search parameters.
-- Gained a basic understanding of key OR-Tools syntax and workflow, such as registering transit callbacks, setting arc costs, adding a time dimension, and extracting routes from the solver output.
-- Extended my own Python baseline toward EVRP-TW by adding battery capacity, energy consumption, charging stations, and a simple full-recharge rule.
-- Tested a small toy EVRP-TW instance and confirmed that charging-station logic can already affect route feasibility.
-- Continued comparing the modeling difference between a hand-built heuristic baseline and a solver-based OR-Tools baseline.
+- Set up the EVRPTW project structure and organized the repository into reusable modules for instance modeling, distance calculation, random instance generation, feasibility checking, and evaluation.
+- Implemented the core data structures for nodes and problem instances, including depot, customers, and charging stations.
+- Built a random instance generator and verified that small toy EVRPTW instances can be generated reproducibly using a fixed seed.
+- Added distance computation utilities and confirmed that basic geometric routing quantities can be calculated correctly.
+- Implemented a feasibility checker and evaluator to support route validation under time-window, battery, and charging-related constraints.
+- Wrote and ran unit tests with `pytest`, and confirmed that the current foundation passes all tests successfully.
+- Learned the basic structure of the codebase and clarified the role of helper components such as `@property`, `seed`, and instance serialization/IO.
 
 **Challenges & blockers**
-- I am still not fully comfortable with the internal logic and syntax of OR-Tools, especially concepts such as dimensions, cumulative variables, and index conversion.
-- It is still unclear how far I should continue developing my own routing logic versus switching more fully to OR-Tools.
-- My current EVRP-TW extension is still a simplified prototype and does not yet include all target elements in a unified framework.
+- At the start of the week, the repository structure and Python import path setup were confusing, especially when trying to run scripts from the `scripts/` directory.
+- The interaction between instance generation, feasibility checking, and evaluation was not immediately clear and required step-by-step debugging.
+- I needed additional time to understand how the project modules fit together before I could confidently extend the solver baseline.
 
 **Next steps**
-- Refine the OR-Tools baseline and gradually add the important missing elements needed for EVRP-TW-style modeling.
-- Continue learning the core OR-Tools concepts and syntax so I can understand and modify the baseline more confidently.
-- Keep extending my own EVRP-TW prototype to include more complete problem elements and clearer feasibility checks.
-- Compare the advantages and limitations of the OR-Tools baseline and the self-built EVRP-TW prototype.
-- Decide on a practical development direction for the next stage: solver-centered implementation with a custom prototype as support.
+- Continue building the baseline solver and move from simple smoke tests to a more meaningful routing heuristic.
+- Add clearer reporting of objective value, feasibility status, runtime, and route output for each experiment.
+- Start preparing a more structured weekly workflow so that each milestone can be documented as soon as it is completed.
+- Gradually move from the core infrastructure toward a complete EVRPTW solution pipeline.
 
 **Hours spent (optional):**
 15
 
 **Links (optional):**
-Ortools: `src/ortools_vrptw_baseline.py`
-Ortools with visualization: 
-![arrive time](./images/arrive_time.png)
-![route map](./images/route_map.png)
-Evrptw with only battery: `src/ortools_vrptw_baseline.py`
-Evrptw with battery and charge stations: `src/ortools_vrptw_baseline.py`
-Meeting note: `2026-06-16`
+- Core instance and generator modules: `src/instance.py`, `src/distance.py`, `src/generator.py`
+- Feasibility and evaluation tools: `src/checker.py`, `src/evaluator.py`
+- Smoke test and unit tests: `scripts/`, `tests/`
+- Meeting note: `2026-06-08`
